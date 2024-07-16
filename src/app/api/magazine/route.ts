@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server';
 import fs from 'fs';
 import path from 'path';
-
+export const dynamic = 'force-dynamic';
 export async function GET(req: NextRequest) {
     console.log('pinged')
     const searchParams = req.url
