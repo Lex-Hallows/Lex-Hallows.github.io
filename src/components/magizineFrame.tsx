@@ -51,19 +51,17 @@ export default function MagazineFrame({pages}: MagazineFrameProps) {
       setCurrentPage(currentPage - 1);
     }
   };
-  const firstPage = () => {
-    setCurrentPage(0);
-  };
+ 
 
   return (
     <div className="view-container">
       
       
-      <MagazineButtons clickFunction={prevPage} text="<"  />
+      {currentPage > 0 && <MagazineButtons clickFunction={prevPage} text="<"  />}
       
     
       <canvas ref={canvasRef}id='canvas'></canvas>
-      <MagazineButtons clickFunction={nextPage} text=">" />
+      {currentPage<pages.length-1 && <MagazineButtons clickFunction={nextPage} text=">" />}
     </div>
   );
 }
