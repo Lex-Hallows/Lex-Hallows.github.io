@@ -110,6 +110,7 @@ a {
 }
 #canvas {
   margin: 20px;
+  border:#ffffff solid 1px;
 }
 .view-container {
   display: flex;
