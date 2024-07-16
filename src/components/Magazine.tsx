@@ -12,12 +12,12 @@ const Magazine = ({issue}:MagazineProps) => {
     useEffect(() => {
         const fetchPages = async () => {
             try{
-            const response = await fetch(`/api/magazine?issue=${issue}`);
+            const response = await fetch(`/api/magazine`);
             if (!response.ok) {
                 throw new Error(`Error fetching pages: ${response.statusText}`);
             }
             const data = await response.json();
-            setPages(data.pages);
+            setPages(data.pageList[issue]);
         } catch (error) {
             console.log(error);
         }

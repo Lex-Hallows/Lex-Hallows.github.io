@@ -1,19 +1,21 @@
 import { NextRequest } from 'next/server';
 import fs from 'fs';
 import path from 'path';
-export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest) {
     console.log('pinged')
-    const searchParams = req.url
-    let issue = searchParams.split('=')[1];
-    if (!issue) {
-       return new Response('Issue parameter is required', { status: 400 });
-    }
+    let pageList:string[][] = [];
+    const issuesDirectory = path.join(process.cwd(), 'public','magazine');
+    const issues = await fs.promises.readdir(issuesDirectory);
+    const promises = issues.map(async issue => {
     const magazineDirectory = path.join(process.cwd(), 'public','magazine', issue);
     const fileNames = await fs.promises.readdir(magazineDirectory);
     const pages = fileNames.sort().map(fileName => `/magazine/${issue}/${fileName}`);
+    pageList.push(pages);
+    });
+    await Promise.all(promises);
 
-    return new Response(JSON.stringify({ pages }), {
+    return new Response(JSON.stringify({ pageList }), {
         status: 200,
     });
 }
