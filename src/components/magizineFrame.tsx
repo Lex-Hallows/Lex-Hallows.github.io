@@ -20,7 +20,7 @@ export default function MagazineFrame({pages}: MagazineFrameProps) {
       renderPage(pdf);
     };
     fetchPage();
-  }, [currentPage]);
+  }, [currentPage, pages]);
 
   const renderPage = async (pdf: pdfjsLib.PDFDocumentProxy) => {
     console.log('rendering page', currentPage);
@@ -54,6 +54,7 @@ export default function MagazineFrame({pages}: MagazineFrameProps) {
   const firstPage = () => {
     setCurrentPage(0);
   };
+
   return (
     <div className="view-container">
       
