@@ -4,8 +4,8 @@ import path from 'path';
 
 export async function GET(req: NextRequest) {
     console.log('pinged')
-    const searchParams = req.nextUrl.searchParams;
-    let issue = searchParams.get('issue');
+    const searchParams = req.url
+    let issue = searchParams.split('=')[1];
     if (!issue) {
        return new Response('Issue parameter is required', { status: 400 });
     }
