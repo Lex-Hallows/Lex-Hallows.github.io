@@ -18,7 +18,7 @@ const DownloadButton = ({issue}:DownloadButtonProps) => {
   };
 
   return (
-    <button className='download-button' onClick={handleDownload}>Download File</button>
+    <button className='download-button' onClick={handleDownload}>Download Issue as a PDF</button>
   );
 };
 
