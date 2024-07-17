@@ -124,11 +124,14 @@ a {
 }
 .page-buttons {
   height: 100vh;
-  opacity: 0; /* Make buttons invisible by default */
+  opacity: 0.2; /* Make buttons invisible by default */
   transition: opacity 0.5s ease; /* Smooth transition for opacity change */
   margin-top: 0;
   margin-bottom: 0;
   padding:10px;
+  background-color: #aaaaaa;
+  color: #000000;
+  font-weight: bolder;
 }
 
 .page-buttons:hover {
@@ -141,4 +144,15 @@ a {
   flex-direction: row;
   padding:7vh;
   background-color: #ffffff10;
+}
+
+.download-button {
+  background-color: #aaaaaa;
+  color: #000000;
+  font-weight: bolder;
+  padding: 10px;
+  border-radius: 5px;
+  margin: auto;
+  cursor: pointer;
+  display: flex;
 }
