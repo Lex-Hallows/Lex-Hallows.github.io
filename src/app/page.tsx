@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import MagazineFrame from "@/components/magizineFrame";
 import Magazine from "@/components/Magazine";
+import DownloadButton from "@/components/DownloadButton";
 
 
 interface HomeProps {
@@ -16,6 +17,7 @@ export default function Home(){
       <nav></nav>
     </div>
     <Magazine issue="0"/>
+    <DownloadButton issue="001"/>
     </>
   );
 }
