@@ -1,5 +1,5 @@
 "use client"
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, use } from "react";
 import MagazineButtons from "./MagazineButtons";
 import * as pdfjsLib from "pdfjs-dist";
 import 'pdfjs-dist/build/pdf.worker';
@@ -10,9 +10,14 @@ export type MagazineFrameProps = {
 export default function MagazineFrame({pages}: MagazineFrameProps) {
   const [currentPage, setCurrentPage] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setCurrentPage(0);
+  },[pages])
+
+  useEffect(() => {
+    if (!loading){
     console.log('rendering page', currentPage);
     const fetchPage = async () => {
       const loadingTask = pdfjsLib.getDocument(pages[currentPage]);
@@ -20,9 +25,13 @@ export default function MagazineFrame({pages}: MagazineFrameProps) {
       renderPage(pdf);
     };
     fetchPage();
+  }
   }, [currentPage, pages]);
 
+  
+
   const renderPage = async (pdf: pdfjsLib.PDFDocumentProxy) => {
+    setLoading(true);
     console.log('rendering page', currentPage);
     const page = await pdf.getPage(1);
     const scale = 1.25;

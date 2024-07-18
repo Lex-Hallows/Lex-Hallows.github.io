@@ -109,13 +109,14 @@ a {
   }
 }
 #canvas {
-  margin: 20px;
+  margin: 2vw;
   border:#ffffff solid 1px;
+  max-width: 80vw;
 }
 .view-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   margin: 20px;
   margin-top: 5vh;
@@ -123,12 +124,11 @@ a {
   height: 90%;
 }
 .page-buttons {
-  height: 100vh;
   opacity: 0.2; /* Make buttons invisible by default */
   transition: opacity 0.5s ease; /* Smooth transition for opacity change */
   margin-top: 0;
   margin-bottom: 0;
-  padding:10px;
+  padding:0.3vw;
   background-color: #aaaaaa;
   color: #000000;
   font-weight: bolder;
@@ -141,8 +141,8 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  padding:7vh;
+  flex-direction: column;
+  padding:5vh;
   background-color: #ffffff10;
 }
 
@@ -155,4 +155,49 @@ a {
   margin: auto;
   cursor: pointer;
   display: flex;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  letter-spacing: 0.4em;
+}
+.title {
+  font-size: 4vw;
+  font-family: serif;
+  transform: scaleX(1.03389);
+  letter-spacing: inherit;
+}
+.subtitle {
+  font-size: 2vw;
+  font-family: serif;
+  transform: scaleX(1.03389);
+  letter-spacing: inherit;
+}
+.est{
+  font-size: 1.5vw;
+  font-family: serif;
+  transform: scaleX(1.03389);
+  letter-spacing: inherit;
+}
+.select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.1vh;
+  margin: 0.1vh;
+  font-size: 1.75vw;
+  margin-top: 0.2vh;
+}
+.select-container select {
+  font-size: 1.5vw;
+  font-family: serif;
+  transform: scaleX(1.03389);
+  padding: 0.5vw;
+  margin: 0.5vw;
+  border-radius: 5px;
+  background-color: #aaaaaa;
+  color: #000000;
+  font-weight: bolder;
 }
