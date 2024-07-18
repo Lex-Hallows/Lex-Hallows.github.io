@@ -74,7 +74,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build with Next.js
-        run: yarn build
+        run: yarn next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
