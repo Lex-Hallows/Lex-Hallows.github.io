@@ -1,6 +1,6 @@
 "use client"
 import MagazineFrame from '@/components/MagazineFrame'; // Adjust the import path as necessary
-import { use, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { IssueContext } from './context/issueContext';
 
 export type MagazineProps = {
