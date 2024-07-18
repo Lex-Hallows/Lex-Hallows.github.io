@@ -1,5 +1,5 @@
 "use client"
-import { useState, useRef, useEffect, use } from "react";
+import { useState, useRef, useEffect } from "react";
 import MagazineButtons from "./MagazineButtons";
 import * as pdfjsLib from "pdfjs-dist";
 import 'pdfjs-dist/build/pdf.worker';
