@@ -17,15 +17,19 @@ export default function MagazineFrame({pages}: MagazineFrameProps) {
   },[pages])
 
   useEffect(() => {
-    if (!loading){
-    console.log('rendering page', currentPage);
-    const fetchPage = async () => {
-      const loadingTask = pdfjsLib.getDocument(pages[currentPage]);
-      const pdf = await loadingTask.promise;
-      renderPage(pdf);
-    };
-    fetchPage();
-  }
+    if (!loading) {
+      console.log('rendering page', currentPage);
+      const fetchPage = async () => {
+        try {
+          const loadingTask = pdfjsLib.getDocument(pages[currentPage]);
+          const pdf = await loadingTask.promise;
+          renderPage(pdf);
+        } catch (error) {
+          console.error('Error fetching or rendering page:', error);
+        }
+      };
+      fetchPage();
+    }
   }, [currentPage, pages]);
 
   
